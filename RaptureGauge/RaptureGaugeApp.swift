@@ -13,13 +13,14 @@ struct RaptureGaugeApp: App {
 // MARK: - Main View with Countdown and Categories
 struct MainView: View {
     @State private var selectedCategory: ProphecyCategory?
+    @State private var showingDetail = false
     @State private var raptureDate = Date().addingTimeInterval(681955200) // ~21.6 years from now
     @State private var currentTime = Date()
 
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     var body: some View {
-        NavigationStack {
+        NavigationView {
             ZStack {
                 // Dark apocalyptic background
                 LinearGradient(colors: [.black, .purple.opacity(0.2)],
@@ -36,24 +37,23 @@ struct MainView: View {
                     ScrollView {
                         VStack(spacing: 12) {
                             ForEach(ProphecyCategory.allCategories) { category in
-                                CategoryRow(category: category)
-                                    .onTapGesture {
-                                        selectedCategory = category
-                                    }
+                                NavigationLink(destination: CategoryDetailView(category: category)) {
+                                    CategoryRow(category: category)
+                                }
+                                .buttonStyle(PlainButtonStyle())
                             }
                         }
                         .padding(.horizontal)
                     }
                 }
             }
-            .navigationDestination(item: $selectedCategory) { category in
-                CategoryDetailView(category: category)
-            }
+            .navigationBarHidden(true)
             .onReceive(timer) { _ in
                 currentTime = Date()
                 updateRaptureEstimate()
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 
     func updateRaptureEstimate() {
@@ -214,7 +214,7 @@ struct CircularProgressView: View {
 // MARK: - Category Detail View
 struct CategoryDetailView: View {
     let category: ProphecyCategory
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         ZStack {
@@ -271,17 +271,15 @@ struct CategoryDetailView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: { dismiss() }) {
-                    HStack {
-                        Image(systemName: "chevron.left")
-                        Text("Back")
-                    }
-                    .foregroundColor(category.color)
+        .navigationBarItems(
+            leading: Button(action: { presentationMode.wrappedValue.dismiss() }) {
+                HStack {
+                    Image(systemName: "chevron.left")
+                    Text("Back")
                 }
+                .foregroundColor(category.color)
             }
-        }
+        )
     }
 }
 
