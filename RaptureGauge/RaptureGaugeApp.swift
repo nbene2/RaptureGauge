@@ -393,36 +393,60 @@ struct ProphecyCategory: Identifiable, Hashable {
     }
 
     static let allCategories = [
+        // 95% - Israel is the highest priority prophetically
         ProphecyCategory(
             name: "Israel & Jerusalem",
             icon: "star",
             color: .blue,
             progress: 0.95,
-            activeConditions: 9,
-            totalConditions: 10,
+            activeConditions: 11,
+            totalConditions: 13,
             prophecies: Prophecy.israelProphecies,
             articles: NewsArticle.israelArticles
         ),
+        // 90% - Knowledge and Economic tied
+        ProphecyCategory(
+            name: "Knowledge Increase",
+            icon: "brain",
+            color: .cyan,
+            progress: 0.90,
+            activeConditions: 3,
+            totalConditions: 3,
+            prophecies: Prophecy.knowledgeProphecies,
+            articles: []
+        ),
+        ProphecyCategory(
+            name: "Economic Signs",
+            icon: "dollarsign.circle",
+            color: .yellow,
+            progress: 0.90,
+            activeConditions: 3,
+            totalConditions: 3,
+            prophecies: Prophecy.economicProphecies,
+            articles: []
+        ),
+        // 85% - Technology and Moral Decay tied
         ProphecyCategory(
             name: "Technology & Control",
             icon: "cpu",
             color: .green,
             progress: 0.85,
-            activeConditions: 7,
-            totalConditions: 8,
+            activeConditions: 4,
+            totalConditions: 5,
             prophecies: Prophecy.techProphecies,
             articles: NewsArticle.techArticles
         ),
         ProphecyCategory(
-            name: "Natural Disasters",
-            icon: "tornado",
-            color: .orange,
-            progress: 0.70,
-            activeConditions: 6,
-            totalConditions: 9,
-            prophecies: Prophecy.disasterProphecies,
-            articles: NewsArticle.disasterArticles
+            name: "Moral Decay",
+            icon: "arrow.down.circle",
+            color: .gray,
+            progress: 0.85,
+            activeConditions: 3,
+            totalConditions: 4,
+            prophecies: Prophecy.moralDecayProphecies,
+            articles: []
         ),
+        // 80% - Wars
         ProphecyCategory(
             name: "Wars & Conflicts",
             icon: "flame",
@@ -433,63 +457,47 @@ struct ProphecyCategory: Identifiable, Hashable {
             prophecies: Prophecy.warProphecies,
             articles: NewsArticle.warArticles
         ),
-        ProphecyCategory(
-            name: "Global Government",
-            icon: "globe",
-            color: .purple,
-            progress: 0.60,
-            activeConditions: 5,
-            totalConditions: 8,
-            prophecies: Prophecy.globalGovProphecies,
-            articles: []
-        ),
+        // 75% - Apostasy
         ProphecyCategory(
             name: "Religious Apostasy",
             icon: "building.columns",
             color: .pink,
             progress: 0.75,
-            activeConditions: 6,
-            totalConditions: 8,
+            activeConditions: 4,
+            totalConditions: 5,
             prophecies: Prophecy.apostasyProphecies,
             articles: []
         ),
+        // 70% - Natural Disasters
         ProphecyCategory(
-            name: "Knowledge Increase",
-            icon: "brain",
-            color: .cyan,
-            progress: 0.90,
+            name: "Natural Disasters",
+            icon: "tornado",
+            color: .orange,
+            progress: 0.70,
             activeConditions: 9,
-            totalConditions: 10,
-            prophecies: Prophecy.knowledgeProphecies,
-            articles: []
+            totalConditions: 13,
+            prophecies: Prophecy.disasterProphecies,
+            articles: NewsArticle.disasterArticles
         ),
+        // 60% - Global Government
         ProphecyCategory(
-            name: "Moral Decay",
-            icon: "arrow.down.circle",
-            color: .gray,
-            progress: 0.85,
-            activeConditions: 8,
-            totalConditions: 9,
-            prophecies: Prophecy.moralDecayProphecies,
+            name: "Global Government",
+            icon: "globe",
+            color: .purple,
+            progress: 0.60,
+            activeConditions: 2,
+            totalConditions: 4,
+            prophecies: Prophecy.globalGovProphecies,
             articles: []
         ),
-        ProphecyCategory(
-            name: "Economic Signs",
-            icon: "dollarsign.circle",
-            color: .yellow,
-            progress: 0.65,
-            activeConditions: 5,
-            totalConditions: 8,
-            prophecies: Prophecy.economicProphecies,
-            articles: []
-        ),
+        // 55% - Persecution
         ProphecyCategory(
             name: "Persecution",
             icon: "plus.circle.fill",
             color: .indigo,
             progress: 0.55,
-            activeConditions: 4,
-            totalConditions: 7,
+            activeConditions: 2,
+            totalConditions: 3,
             prophecies: Prophecy.persecutionProphecies,
             articles: []
         )

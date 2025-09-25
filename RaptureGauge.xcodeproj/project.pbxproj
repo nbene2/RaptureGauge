@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		B01 /* RaptureGaugeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01 /* RaptureGaugeApp.swift */; };
+		B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AST /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		APP /* RaptureGauge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaptureGauge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01 /* RaptureGaugeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaptureGaugeApp.swift; sourceTree = "<group>"; };
+		AST /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		INF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -39,6 +41,7 @@
 			isa = PBXGroup;
 			children = (
 				A01 /* RaptureGaugeApp.swift */,
+				AST /* Assets.xcassets */,
 				INF /* Info.plist */,
 			);
 			path = RaptureGauge;
@@ -110,6 +113,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B02 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
