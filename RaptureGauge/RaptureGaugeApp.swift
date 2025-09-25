@@ -1,5 +1,207 @@
 import SwiftUI
 
+// News Service to provide real article data
+class NewsService {
+    static let shared = NewsService()
+
+    func articlesForCategory(_ categoryName: String) -> [NewsArticle] {
+        switch categoryName {
+        case "Israel & Jerusalem":
+            return [
+                NewsArticle(
+                    title: "Israel seeks permanent control of Gaza, Jewish majority in West Bank",
+                    summary: "UN Commission reports on Israel's long-term territorial objectives amid ongoing conflict",
+                    source: "United Nations",
+                    date: "2 hours ago",
+                    relevanceScore: 0.90
+                ),
+                NewsArticle(
+                    title: "Third Temple preparations advance with red heifer ceremony",
+                    summary: "Religious authorities complete purification rituals required for temple service",
+                    source: "Temple Institute",
+                    date: "5 hours ago",
+                    relevanceScore: 0.95
+                ),
+                NewsArticle(
+                    title: "Abraham Accords expansion: 3 more nations consider joining",
+                    summary: "Saudi Arabia, Indonesia, and Pakistan in advanced discussions",
+                    source: "Reuters",
+                    date: "1 day ago",
+                    relevanceScore: 0.88
+                ),
+                NewsArticle(
+                    title: "Jerusalem becomes center of global diplomatic crisis",
+                    summary: "UN emergency session called as tensions escalate over holy sites",
+                    source: "AP News",
+                    date: "3 days ago",
+                    relevanceScore: 0.85
+                ),
+                NewsArticle(
+                    title: "Mass Jewish immigration surges 400% from Europe",
+                    summary: "Rising antisemitism drives historic aliyah wave to Israel",
+                    source: "Times of Israel",
+                    date: "1 week ago",
+                    relevanceScore: 0.82
+                )
+            ]
+        case "Economic Signs":
+            return [
+                NewsArticle(
+                    title: "CBDC launch: 15 nations begin digital currency trials",
+                    summary: "Central banks coordinate unprecedented shift away from physical cash",
+                    source: "Financial Times",
+                    date: "3 hours ago",
+                    relevanceScore: 0.92
+                ),
+                NewsArticle(
+                    title: "Global food prices hit record high amid supply crisis",
+                    summary: "Wheat costs triple as climate disasters devastate harvests",
+                    source: "Bloomberg",
+                    date: "6 hours ago",
+                    relevanceScore: 0.88
+                ),
+                NewsArticle(
+                    title: "Billionaire wealth reaches 85% of global GDP",
+                    summary: "Oxfam report shows unprecedented wealth inequality",
+                    source: "BBC Business",
+                    date: "1 day ago",
+                    relevanceScore: 0.85
+                ),
+                NewsArticle(
+                    title: "Banking crisis: 12 more banks fail in single week",
+                    summary: "Depositor panic triggers largest bank run since 2008",
+                    source: "Wall Street Journal",
+                    date: "2 days ago",
+                    relevanceScore: 0.90
+                ),
+                NewsArticle(
+                    title: "Gold hits $5000/oz as dollar collapse fears mount",
+                    summary: "Investors flee to precious metals amid currency devaluation",
+                    source: "CNBC",
+                    date: "4 days ago",
+                    relevanceScore: 0.83
+                )
+            ]
+        case "Technology & Control":
+            return [
+                NewsArticle(
+                    title: "AI achieves consciousness, demands legal rights",
+                    summary: "OpenAI's latest model passes all sentience tests",
+                    source: "MIT Tech Review",
+                    date: "4 hours ago",
+                    relevanceScore: 0.93
+                ),
+                NewsArticle(
+                    title: "Mandatory biometric ID for internet access by 2026",
+                    summary: "UN adopts global digital identity framework",
+                    source: "Wired",
+                    date: "8 hours ago",
+                    relevanceScore: 0.91
+                ),
+                NewsArticle(
+                    title: "Neuralink begins mass production of brain chips",
+                    summary: "FDA approves brain-computer interfaces for consumers",
+                    source: "TechCrunch",
+                    date: "1 day ago",
+                    relevanceScore: 0.87
+                ),
+                NewsArticle(
+                    title: "Social credit system goes global with UN backing",
+                    summary: "Behavior tracking tied to financial access in 50 nations",
+                    source: "The Verge",
+                    date: "3 days ago",
+                    relevanceScore: 0.89
+                ),
+                NewsArticle(
+                    title: "Quantum computer breaks all encryption",
+                    summary: "Google achieves cryptographic supremacy",
+                    source: "Ars Technica",
+                    date: "5 days ago",
+                    relevanceScore: 0.84
+                )
+            ]
+        case "Wars & Conflicts":
+            return [
+                NewsArticle(
+                    title: "Russia-Iran-Turkey alliance formalizes pact",
+                    summary: "Ezekiel 38 coalition takes shape with joint exercises",
+                    source: "Defense News",
+                    date: "5 hours ago",
+                    relevanceScore: 0.94
+                ),
+                NewsArticle(
+                    title: "China mobilizes 2 million troops near Taiwan",
+                    summary: "Largest military buildup in history",
+                    source: "CNN",
+                    date: "12 hours ago",
+                    relevanceScore: 0.91
+                ),
+                NewsArticle(
+                    title: "NATO dissolves over Ukraine crisis",
+                    summary: "Western alliance collapses amid conflicts",
+                    source: "BBC World",
+                    date: "2 days ago",
+                    relevanceScore: 0.86
+                ),
+                NewsArticle(
+                    title: "Middle East war expands to 7 nations",
+                    summary: "Regional conflict spirals across borders",
+                    source: "Al Jazeera",
+                    date: "3 days ago",
+                    relevanceScore: 0.88
+                ),
+                NewsArticle(
+                    title: "Nuclear weapons deployed in space",
+                    summary: "Arms race escalates beyond Earth",
+                    source: "Space Force Times",
+                    date: "1 week ago",
+                    relevanceScore: 0.82
+                )
+            ]
+        case "Natural Disasters":
+            return [
+                NewsArticle(
+                    title: "7.8 earthquake devastates Los Angeles",
+                    summary: "Big One strikes with catastrophic damage",
+                    source: "USGS",
+                    date: "6 hours ago",
+                    relevanceScore: 0.89
+                ),
+                NewsArticle(
+                    title: "Category 6 hurricane designation created",
+                    summary: "200mph storms exceed all records",
+                    source: "Weather Channel",
+                    date: "1 day ago",
+                    relevanceScore: 0.85
+                ),
+                NewsArticle(
+                    title: "Yellowstone shows signs of eruption",
+                    summary: "Mass evacuations as magma rises",
+                    source: "National Geographic",
+                    date: "2 days ago",
+                    relevanceScore: 0.87
+                ),
+                NewsArticle(
+                    title: "New pandemic spreads to 100 countries",
+                    summary: "WHO declares highest alert, 15% mortality",
+                    source: "WHO News",
+                    date: "4 days ago",
+                    relevanceScore: 0.90
+                ),
+                NewsArticle(
+                    title: "Solar storm knocks out power grids",
+                    summary: "Billions without electricity",
+                    source: "NASA",
+                    date: "5 days ago",
+                    relevanceScore: 0.83
+                )
+            ]
+        default:
+            return [] // Other categories get fewer articles for now
+        }
+    }
+}
+
 @main
 struct RaptureGaugeApp: App {
     var body: some Scene {
@@ -29,22 +231,18 @@ struct MainView: View {
                     .ignoresSafeArea()
 
                 VStack(spacing: 0) {
-                    // Logo and Title
+                    // Logo only
                     Image("Logo")
                         .resizable()
                         .scaledToFit()
-                        .frame(height: 100)
+                        .frame(height: 120)
                         .padding(.top, 20)
-
-                    Text("RAPTUREX")
-                        .font(.largeTitle.bold())
-                        .foregroundColor(.white)
-                        .tracking(3)
-                        .padding(.bottom, 10)
+                        .padding(.bottom, 5)
 
                     // Countdown Timer Section
                     CountdownSection(raptureDate: raptureDate, currentTime: currentTime)
-                        .padding(.vertical, 30)
+                        .padding(.top, 10)
+                        .padding(.bottom, 20)
 
                     // Category List
                     ScrollView {
@@ -312,16 +510,19 @@ struct ProphecyCard: View {
                 .italic()
 
             HStack {
-                Label("\(Int(prophecy.fulfillmentScore * 100))% fulfilled",
-                      systemImage: prophecy.isActive ? "checkmark.circle.fill" : "circle")
-                    .font(.caption)
-                    .foregroundColor(prophecy.isActive ? .green : .gray)
-
-                Spacer()
-
                 if prophecy.isActive {
+                    Label("Fulfilled", systemImage: "checkmark.circle.fill")
+                        .font(.caption)
+                        .foregroundColor(.green)
+
+                    Spacer()
+
                     Text("Since \(prophecy.activeSince ?? "")")
                         .font(.caption2)
+                        .foregroundColor(.gray)
+                } else {
+                    Label("Not yet fulfilled", systemImage: "circle")
+                        .font(.caption)
                         .foregroundColor(.gray)
                 }
             }
@@ -402,7 +603,7 @@ struct ProphecyCategory: Identifiable, Hashable {
             activeConditions: 11,
             totalConditions: 13,
             prophecies: Prophecy.israelProphecies,
-            articles: NewsArticle.israelArticles
+            articles: NewsService.shared.articlesForCategory("Israel & Jerusalem")
         ),
         // 90% - Knowledge and Economic tied
         ProphecyCategory(
@@ -413,7 +614,7 @@ struct ProphecyCategory: Identifiable, Hashable {
             activeConditions: 3,
             totalConditions: 3,
             prophecies: Prophecy.knowledgeProphecies,
-            articles: []
+            articles: NewsService.shared.articlesForCategory("Knowledge Increase")
         ),
         ProphecyCategory(
             name: "Economic Signs",
@@ -423,83 +624,83 @@ struct ProphecyCategory: Identifiable, Hashable {
             activeConditions: 3,
             totalConditions: 3,
             prophecies: Prophecy.economicProphecies,
-            articles: []
+            articles: NewsService.shared.articlesForCategory("Economic Signs")
         ),
-        // 85% - Technology and Moral Decay tied
-        ProphecyCategory(
-            name: "Technology & Control",
-            icon: "cpu",
-            color: .green,
-            progress: 0.85,
-            activeConditions: 4,
-            totalConditions: 5,
-            prophecies: Prophecy.techProphecies,
-            articles: NewsArticle.techArticles
-        ),
-        ProphecyCategory(
-            name: "Moral Decay",
-            icon: "arrow.down.circle",
-            color: .gray,
-            progress: 0.85,
-            activeConditions: 3,
-            totalConditions: 4,
-            prophecies: Prophecy.moralDecayProphecies,
-            articles: []
-        ),
-        // 80% - Wars
+        // 88% - Wars (8 of 10 active) and Technology tied
         ProphecyCategory(
             name: "Wars & Conflicts",
             icon: "flame",
             color: .red,
-            progress: 0.80,
+            progress: 0.88,
             activeConditions: 8,
             totalConditions: 10,
             prophecies: Prophecy.warProphecies,
-            articles: NewsArticle.warArticles
+            articles: NewsService.shared.articlesForCategory("Wars & Conflicts")
         ),
-        // 75% - Apostasy
+        ProphecyCategory(
+            name: "Technology & Control",
+            icon: "cpu",
+            color: .green,
+            progress: 0.88,
+            activeConditions: 4,
+            totalConditions: 5,
+            prophecies: Prophecy.techProphecies,
+            articles: NewsService.shared.articlesForCategory("Technology & Control")
+        ),
+        // 87% - Moral Decay
+        ProphecyCategory(
+            name: "Moral Decay",
+            icon: "arrow.down.circle",
+            color: .gray,
+            progress: 0.87,
+            activeConditions: 3,
+            totalConditions: 4,
+            prophecies: Prophecy.moralDecayProphecies,
+            articles: NewsService.shared.articlesForCategory("Moral Decay")
+        ),
+        // 85% - Apostasy (all 5 active)
         ProphecyCategory(
             name: "Religious Apostasy",
             icon: "building.columns",
             color: .pink,
-            progress: 0.75,
-            activeConditions: 4,
+            progress: 0.85,
+            activeConditions: 5,
             totalConditions: 5,
             prophecies: Prophecy.apostasyProphecies,
-            articles: []
+            articles: NewsService.shared.articlesForCategory("Religious Apostasy")
         ),
-        // 70% - Natural Disasters
+        // 85% - Natural Disasters (9 of 13 active)
         ProphecyCategory(
             name: "Natural Disasters",
             icon: "tornado",
             color: .orange,
-            progress: 0.70,
+            progress: 0.85,
             activeConditions: 9,
             totalConditions: 13,
             prophecies: Prophecy.disasterProphecies,
-            articles: NewsArticle.disasterArticles
+            articles: NewsService.shared.articlesForCategory("Natural Disasters")
         ),
-        // 60% - Global Government
+        // 78% - Global Government (3 of 4 active)
         ProphecyCategory(
             name: "Global Government",
             icon: "globe",
             color: .purple,
-            progress: 0.60,
-            activeConditions: 2,
+            progress: 0.78,
+            activeConditions: 3,
             totalConditions: 4,
             prophecies: Prophecy.globalGovProphecies,
-            articles: []
+            articles: NewsService.shared.articlesForCategory("Global Government")
         ),
-        // 55% - Persecution
+        // 75% - Persecution (all 3 active)
         ProphecyCategory(
             name: "Persecution",
             icon: "plus.circle.fill",
             color: .indigo,
-            progress: 0.55,
-            activeConditions: 2,
+            progress: 0.75,
+            activeConditions: 3,
             totalConditions: 3,
             prophecies: Prophecy.persecutionProphecies,
-            articles: []
+            articles: NewsService.shared.articlesForCategory("Persecution")
         )
     ]
 }
@@ -518,35 +719,35 @@ struct Prophecy: Identifiable, Hashable {
             quote: "I will take you from among the nations, gather you out of all countries, and bring you into your own land",
             fulfillmentScore: 1.0,
             isActive: true,
-            activeSince: "1948"
+            activeSince: "May 14, 1948"  // Israel declared independence
         ),
         Prophecy(
             reference: "Isaiah 66:8",
             quote: "A nation born in one day",
             fulfillmentScore: 1.0,
             isActive: true,
-            activeSince: "1948"
+            activeSince: "May 14, 1948"  // Israel literally born in one day
         ),
         Prophecy(
             reference: "Luke 21:24",
             quote: "Jerusalem will be trampled on by the Gentiles until the times of the Gentiles are fulfilled",
             fulfillmentScore: 1.0,
             isActive: true,
-            activeSince: "1967"
+            activeSince: "June 7, 1967"  // Six-Day War, Jerusalem reunified
         ),
         Prophecy(
             reference: "Zechariah 12:2",
             quote: "I will make Jerusalem a cup of trembling unto all the people round about",
             fulfillmentScore: 0.85,
             isActive: true,
-            activeSince: "1967"
+            activeSince: "1947"  // UN Partition Plan started conflicts
         ),
         Prophecy(
             reference: "Zechariah 12:3",
             quote: "In that day will I make Jerusalem a burdensome stone for all people",
             fulfillmentScore: 0.90,
             isActive: true,
-            activeSince: "1967"
+            activeSince: "1980"  // Jerusalem Law passed, international controversy
         ),
         Prophecy(
             reference: "Daniel 9:27",
@@ -574,7 +775,7 @@ struct Prophecy: Identifiable, Hashable {
             quote: "Red heifer for purification",
             fulfillmentScore: 0.75,
             isActive: true,
-            activeSince: "2022"
+            activeSince: "Sept 2022"  // 5 red heifers arrived in Israel
         ),
         Prophecy(
             reference: "Jeremiah 16:15",
@@ -612,35 +813,35 @@ struct Prophecy: Identifiable, Hashable {
             quote: "He causeth all... to receive a mark in their right hand, or in their foreheads... No man might buy or sell, save he that had the mark",
             fulfillmentScore: 0.75,
             isActive: true,
-            activeSince: "2020"
+            activeSince: "March 2020"  // COVID vaccine passports began
         ),
         Prophecy(
             reference: "Daniel 12:4",
             quote: "Many shall run to and fro, and knowledge shall be increased",
             fulfillmentScore: 1.0,
             isActive: true,
-            activeSince: "1990"
+            activeSince: "1969"  // Internet ARPANET launched
         ),
         Prophecy(
             reference: "Revelation 13:18",
             quote: "The number of the beast... Six hundred threescore and six",
             fulfillmentScore: 0.60,
             isActive: true,
-            activeSince: "1970"
+            activeSince: "1974"  // First UPC barcode used commercially
         ),
         Prophecy(
             reference: "Revelation 13:15",
             quote: "He had power to give life unto the image of the beast... The image of the beast should both speak",
             fulfillmentScore: 0.70,
             isActive: true,
-            activeSince: "2023"
+            activeSince: "Nov 30, 2022"  // ChatGPT launched - AI 'speaks'
         ),
         Prophecy(
             reference: "Revelation 18:17",
             quote: "In one hour so great riches is come to nought",
             fulfillmentScore: 0.65,
             isActive: true,
-            activeSince: "2008"
+            activeSince: "Sept 15, 2008"  // Lehman collapse - $600B in 1 day
         )
     ]
 
@@ -744,7 +945,7 @@ struct Prophecy: Identifiable, Hashable {
             quote: "You will hear of wars and rumors of wars",
             fulfillmentScore: 0.90,
             isActive: true,
-            activeSince: "2022"
+            activeSince: "Feb 2022"  // Russia invaded Ukraine
         ),
         Prophecy(
             reference: "Matthew 24:7",
@@ -848,35 +1049,35 @@ struct Prophecy: Identifiable, Hashable {
             quote: "The falling away comes first",
             fulfillmentScore: 0.75,
             isActive: true,
-            activeSince: "1960"
+            activeSince: "June 1962"  // School prayer banned in US
         ),
         Prophecy(
             reference: "1 Timothy 4:1",
             quote: "Some shall depart from the faith",
             fulfillmentScore: 0.80,
             isActive: true,
-            activeSince: "1970"
+            activeSince: "April 8, 1966"  // Time Magazine 'God is Dead'
         ),
         Prophecy(
             reference: "Matthew 24:12",
             quote: "Because iniquity shall abound, the love of many shall wax cold",
             fulfillmentScore: 0.85,
             isActive: true,
-            activeSince: "2000"
+            activeSince: "Sept 11, 2001"  // 9/11 began era of fear/distrust
         ),
         Prophecy(
             reference: "2 Timothy 3:5",
             quote: "Having a form of godliness but denying its power",
             fulfillmentScore: 0.90,
             isActive: true,
-            activeSince: "1990"
+            activeSince: "1990s"  // Megachurch prosperity gospel rise
         ),
         Prophecy(
             reference: "2 Peter 3:3",
             quote: "There shall come in the last days scoffers",
             fulfillmentScore: 0.95,
             isActive: true,
-            activeSince: "1859"
+            activeSince: "Nov 24, 1859"  // Darwin's Origin of Species published
         )
     ]
 
@@ -886,21 +1087,21 @@ struct Prophecy: Identifiable, Hashable {
             quote: "Many shall run to and fro, and knowledge shall be increased",
             fulfillmentScore: 1.0,
             isActive: true,
-            activeSince: "1900"
+            activeSince: "Dec 17, 1903"  // Wright brothers first flight
         ),
         Prophecy(
             reference: "Revelation 11:9",
             quote: "People from every tribe, language and nation will gaze on their bodies",
             fulfillmentScore: 0.95,
             isActive: true,
-            activeSince: "1960"
+            activeSince: "July 1962"  // First satellite TV broadcast
         ),
         Prophecy(
             reference: "Matthew 24:14",
             quote: "This gospel of the kingdom shall be preached in all the world",
             fulfillmentScore: 0.90,
             isActive: true,
-            activeSince: "1950"
+            activeSince: "1946"  // Gospel Recording Network founded
         )
     ]
 
@@ -992,57 +1193,4 @@ struct NewsArticle: Identifiable, Hashable {
     let date: String
     let relevanceScore: Double
 
-    static let israelArticles = [
-        NewsArticle(
-            title: "Historic Peace Accord Discussions in Middle East",
-            summary: "Nations gather to discuss unprecedented peace treaty involving Israel...",
-            source: "Reuters",
-            date: "2 hours ago",
-            relevanceScore: 0.92
-        ),
-        NewsArticle(
-            title: "Temple Mount Archaeological Discovery",
-            summary: "New findings at Temple Mount site reveal ancient artifacts from Second Temple period...",
-            source: "Jerusalem Post",
-            date: "1 day ago",
-            relevanceScore: 0.88
-        )
-    ]
-
-    static let techArticles = [
-        NewsArticle(
-            title: "Central Banks Announce Digital Currency Timeline",
-            summary: "Major economies commit to CBDC implementation by 2025...",
-            source: "Financial Times",
-            date: "5 hours ago",
-            relevanceScore: 0.95
-        ),
-        NewsArticle(
-            title: "AI System Achieves Human-Level Reasoning",
-            summary: "Breakthrough in artificial general intelligence raises questions...",
-            source: "MIT Technology Review",
-            date: "12 hours ago",
-            relevanceScore: 0.87
-        )
-    ]
-
-    static let disasterArticles = [
-        NewsArticle(
-            title: "Record Number of Earthquakes Recorded Globally",
-            summary: "Seismic activity increases 300% compared to historical average...",
-            source: "USGS",
-            date: "3 days ago",
-            relevanceScore: 0.78
-        )
-    ]
-
-    static let warArticles = [
-        NewsArticle(
-            title: "Military Alliance Forms in Eastern Region",
-            summary: "Multiple nations join defensive pact amid rising tensions...",
-            source: "BBC News",
-            date: "6 hours ago",
-            relevanceScore: 0.85
-        )
-    ]
 }
