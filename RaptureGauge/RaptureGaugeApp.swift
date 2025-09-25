@@ -29,6 +29,19 @@ struct MainView: View {
                     .ignoresSafeArea()
 
                 VStack(spacing: 0) {
+                    // Logo and Title
+                    Image("Logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 100)
+                        .padding(.top, 20)
+
+                    Text("RAPTUREX")
+                        .font(.largeTitle.bold())
+                        .foregroundColor(.white)
+                        .tracking(3)
+                        .padding(.bottom, 10)
+
                     // Countdown Timer Section
                     CountdownSection(raptureDate: raptureDate, currentTime: currentTime)
                         .padding(.vertical, 30)
@@ -382,7 +395,7 @@ struct ProphecyCategory: Identifiable, Hashable {
     static let allCategories = [
         ProphecyCategory(
             name: "Israel & Jerusalem",
-            icon: "star.of.david",
+            icon: "star",
             color: .blue,
             progress: 0.95,
             activeConditions: 9,
@@ -427,7 +440,7 @@ struct ProphecyCategory: Identifiable, Hashable {
             progress: 0.60,
             activeConditions: 5,
             totalConditions: 8,
-            prophecies: [],
+            prophecies: Prophecy.globalGovProphecies,
             articles: []
         ),
         ProphecyCategory(
@@ -437,7 +450,7 @@ struct ProphecyCategory: Identifiable, Hashable {
             progress: 0.75,
             activeConditions: 6,
             totalConditions: 8,
-            prophecies: [],
+            prophecies: Prophecy.apostasyProphecies,
             articles: []
         ),
         ProphecyCategory(
@@ -447,7 +460,7 @@ struct ProphecyCategory: Identifiable, Hashable {
             progress: 0.90,
             activeConditions: 9,
             totalConditions: 10,
-            prophecies: [],
+            prophecies: Prophecy.knowledgeProphecies,
             articles: []
         ),
         ProphecyCategory(
@@ -457,7 +470,7 @@ struct ProphecyCategory: Identifiable, Hashable {
             progress: 0.85,
             activeConditions: 8,
             totalConditions: 9,
-            prophecies: [],
+            prophecies: Prophecy.moralDecayProphecies,
             articles: []
         ),
         ProphecyCategory(
@@ -467,17 +480,17 @@ struct ProphecyCategory: Identifiable, Hashable {
             progress: 0.65,
             activeConditions: 5,
             totalConditions: 8,
-            prophecies: [],
+            prophecies: Prophecy.economicProphecies,
             articles: []
         ),
         ProphecyCategory(
             name: "Persecution",
-            icon: "cross.fill",
+            icon: "plus.circle.fill",
             color: .indigo,
             progress: 0.55,
             activeConditions: 4,
             totalConditions: 7,
-            prophecies: [],
+            prophecies: Prophecy.persecutionProphecies,
             articles: []
         )
     ]
@@ -493,52 +506,227 @@ struct Prophecy: Identifiable, Hashable {
 
     static let israelProphecies = [
         Prophecy(
-            reference: "Ezekiel 37:21-22",
-            quote: "I will gather the Israelites from among the nations... and bring them to their own land.",
+            reference: "Ezekiel 36:24",
+            quote: "I will take you from among the nations, gather you out of all countries, and bring you into your own land",
+            fulfillmentScore: 1.0,
+            isActive: true,
+            activeSince: "1948"
+        ),
+        Prophecy(
+            reference: "Isaiah 66:8",
+            quote: "A nation born in one day",
             fulfillmentScore: 1.0,
             isActive: true,
             activeSince: "1948"
         ),
         Prophecy(
             reference: "Luke 21:24",
-            quote: "Jerusalem will be trampled on by the Gentiles until the times of the Gentiles are fulfilled.",
+            quote: "Jerusalem will be trampled on by the Gentiles until the times of the Gentiles are fulfilled",
             fulfillmentScore: 1.0,
             isActive: true,
             activeSince: "1967"
         ),
         Prophecy(
-            reference: "Isaiah 66:8",
-            quote: "Who has ever heard of such things? Can a country be born in a day?",
-            fulfillmentScore: 1.0,
+            reference: "Zechariah 12:2",
+            quote: "I will make Jerusalem a cup of trembling unto all the people round about",
+            fulfillmentScore: 0.85,
+            isActive: true,
+            activeSince: "1967"
+        ),
+        Prophecy(
+            reference: "Zechariah 12:3",
+            quote: "In that day will I make Jerusalem a burdensome stone for all people",
+            fulfillmentScore: 0.90,
+            isActive: true,
+            activeSince: "1967"
+        ),
+        Prophecy(
+            reference: "Daniel 9:27",
+            quote: "He will confirm a covenant with many for one 'seven.' In the middle of the 'seven' he will put an end to sacrifice",
+            fulfillmentScore: 0.10,
+            isActive: false,
+            activeSince: nil
+        ),
+        Prophecy(
+            reference: "2 Thessalonians 2:4",
+            quote: "The man of lawlessness... will sit in the temple of God",
+            fulfillmentScore: 0.05,
+            isActive: false,
+            activeSince: nil
+        ),
+        Prophecy(
+            reference: "Matthew 24:15",
+            quote: "When you see standing in the holy place 'the abomination that causes desolation'",
+            fulfillmentScore: 0.0,
+            isActive: false,
+            activeSince: nil
+        ),
+        Prophecy(
+            reference: "Numbers 19",
+            quote: "Red heifer for purification",
+            fulfillmentScore: 0.75,
+            isActive: true,
+            activeSince: "2022"
+        ),
+        Prophecy(
+            reference: "Jeremiah 16:15",
+            quote: "I will bring them back to the land I gave to their ancestors",
+            fulfillmentScore: 0.95,
             isActive: true,
             activeSince: "1948"
+        ),
+        Prophecy(
+            reference: "Isaiah 11:11-12",
+            quote: "Second regathering from all nations",
+            fulfillmentScore: 0.90,
+            isActive: true,
+            activeSince: "1948"
+        ),
+        Prophecy(
+            reference: "Ezekiel 37:21-22",
+            quote: "Making them one nation in the land",
+            fulfillmentScore: 0.85,
+            isActive: true,
+            activeSince: "1948"
+        ),
+        Prophecy(
+            reference: "Zechariah 14:2",
+            quote: "All nations gathered against Jerusalem",
+            fulfillmentScore: 0.40,
+            isActive: false,
+            activeSince: nil
         )
     ]
 
     static let techProphecies = [
         Prophecy(
             reference: "Revelation 13:16-17",
-            quote: "No one could buy or sell unless they had the mark...",
-            fulfillmentScore: 0.85,
+            quote: "He causeth all... to receive a mark in their right hand, or in their foreheads... No man might buy or sell, save he that had the mark",
+            fulfillmentScore: 0.75,
             isActive: true,
             activeSince: "2020"
         ),
         Prophecy(
             reference: "Daniel 12:4",
-            quote: "Knowledge shall increase",
-            fulfillmentScore: 0.95,
+            quote: "Many shall run to and fro, and knowledge shall be increased",
+            fulfillmentScore: 1.0,
             isActive: true,
             activeSince: "1990"
+        ),
+        Prophecy(
+            reference: "Revelation 13:18",
+            quote: "The number of the beast... Six hundred threescore and six",
+            fulfillmentScore: 0.60,
+            isActive: true,
+            activeSince: "1970"
+        ),
+        Prophecy(
+            reference: "Revelation 13:15",
+            quote: "He had power to give life unto the image of the beast... The image of the beast should both speak",
+            fulfillmentScore: 0.70,
+            isActive: true,
+            activeSince: "2023"
+        ),
+        Prophecy(
+            reference: "Revelation 18:17",
+            quote: "In one hour so great riches is come to nought",
+            fulfillmentScore: 0.65,
+            isActive: true,
+            activeSince: "2008"
         )
     ]
 
     static let disasterProphecies = [
         Prophecy(
+            reference: "Luke 21:11",
+            quote: "There will be great earthquakes",
+            fulfillmentScore: 0.75,
+            isActive: true,
+            activeSince: "2004"
+        ),
+        Prophecy(
             reference: "Matthew 24:7",
-            quote: "There will be earthquakes in various places",
+            quote: "There will be famines and earthquakes in various places",
             fulfillmentScore: 0.70,
             isActive: true,
             activeSince: "2010"
+        ),
+        Prophecy(
+            reference: "Luke 21:11",
+            quote: "Pestilences in various places",
+            fulfillmentScore: 0.85,
+            isActive: true,
+            activeSince: "2020"
+        ),
+        Prophecy(
+            reference: "Revelation 6:8",
+            quote: "Death was given power over a fourth of the earth",
+            fulfillmentScore: 0.30,
+            isActive: false,
+            activeSince: nil
+        ),
+        Prophecy(
+            reference: "Matthew 24:29",
+            quote: "The sun will be darkened, and the moon will not give its light",
+            fulfillmentScore: 0.10,
+            isActive: false,
+            activeSince: nil
+        ),
+        Prophecy(
+            reference: "Joel 2:31",
+            quote: "The moon turned blood red",
+            fulfillmentScore: 0.35,
+            isActive: true,
+            activeSince: "2014"
+        ),
+        Prophecy(
+            reference: "Luke 21:11",
+            quote: "Fearful events and great signs from heaven",
+            fulfillmentScore: 0.40,
+            isActive: true,
+            activeSince: "2020"
+        ),
+        Prophecy(
+            reference: "Luke 21:25",
+            quote: "The sea and the waves roaring",
+            fulfillmentScore: 0.60,
+            isActive: true,
+            activeSince: "2000"
+        ),
+        Prophecy(
+            reference: "Revelation 8:8",
+            quote: "A third of the sea turned into blood",
+            fulfillmentScore: 0.15,
+            isActive: false,
+            activeSince: nil
+        ),
+        Prophecy(
+            reference: "Revelation 8:11",
+            quote: "A third of the waters turned bitter",
+            fulfillmentScore: 0.20,
+            isActive: false,
+            activeSince: nil
+        ),
+        Prophecy(
+            reference: "Revelation 16:12",
+            quote: "The Euphrates river was dried up",
+            fulfillmentScore: 0.45,
+            isActive: true,
+            activeSince: "2021"
+        ),
+        Prophecy(
+            reference: "Revelation 16:18-20",
+            quote: "A great earthquake... and every island fled away",
+            fulfillmentScore: 0.05,
+            isActive: false,
+            activeSince: nil
+        ),
+        Prophecy(
+            reference: "Revelation 6:6",
+            quote: "A quart of wheat for a day's wages",
+            fulfillmentScore: 0.55,
+            isActive: true,
+            activeSince: "2022"
         )
     ]
 
@@ -549,6 +737,241 @@ struct Prophecy: Identifiable, Hashable {
             fulfillmentScore: 0.90,
             isActive: true,
             activeSince: "2022"
+        ),
+        Prophecy(
+            reference: "Matthew 24:7",
+            quote: "Nation will rise against nation, and kingdom against kingdom",
+            fulfillmentScore: 0.85,
+            isActive: true,
+            activeSince: "1914"
+        ),
+        Prophecy(
+            reference: "Ezekiel 38:2-5",
+            quote: "Gog, of the land of Magog... Persia, Cush and Put will be with them",
+            fulfillmentScore: 0.70,
+            isActive: true,
+            activeSince: "2015"
+        ),
+        Prophecy(
+            reference: "Ezekiel 38:6",
+            quote: "Gomer and all its troops... Beth Togarmah from the far north",
+            fulfillmentScore: 0.65,
+            isActive: true,
+            activeSince: "2016"
+        ),
+        Prophecy(
+            reference: "Revelation 16:12",
+            quote: "The kings from the East",
+            fulfillmentScore: 0.65,
+            isActive: true,
+            activeSince: "2020"
+        ),
+        Prophecy(
+            reference: "Daniel 11:40",
+            quote: "The king of the North... the king of the South",
+            fulfillmentScore: 0.55,
+            isActive: true,
+            activeSince: "2011"
+        ),
+        Prophecy(
+            reference: "Revelation 16:14",
+            quote: "The battle of that great day of God Almighty",
+            fulfillmentScore: 0.15,
+            isActive: false,
+            activeSince: nil
+        ),
+        Prophecy(
+            reference: "Revelation 16:16",
+            quote: "He gathered them together into a place called... Armageddon",
+            fulfillmentScore: 0.20,
+            isActive: false,
+            activeSince: nil
+        ),
+        Prophecy(
+            reference: "Zechariah 14:2",
+            quote: "I will gather all nations against Jerusalem to battle",
+            fulfillmentScore: 0.35,
+            isActive: false,
+            activeSince: nil
+        ),
+        Prophecy(
+            reference: "1 Thessalonians 5:3",
+            quote: "When they shall say, Peace and safety; then sudden destruction",
+            fulfillmentScore: 0.50,
+            isActive: true,
+            activeSince: "2020"
+        )
+    ]
+
+    static let globalGovProphecies = [
+        Prophecy(
+            reference: "Revelation 13:7",
+            quote: "Authority over every tribe, people, language and nation",
+            fulfillmentScore: 0.55,
+            isActive: true,
+            activeSince: "1945"
+        ),
+        Prophecy(
+            reference: "Revelation 13:8",
+            quote: "All inhabitants of the earth will worship the beast",
+            fulfillmentScore: 0.20,
+            isActive: false,
+            activeSince: nil
+        ),
+        Prophecy(
+            reference: "Revelation 17:12",
+            quote: "Ten kings who have not yet received a kingdom",
+            fulfillmentScore: 0.60,
+            isActive: true,
+            activeSince: "1957"
+        ),
+        Prophecy(
+            reference: "Daniel 7:24",
+            quote: "Ten-nation confederacy",
+            fulfillmentScore: 0.65,
+            isActive: true,
+            activeSince: "1993"
+        )
+    ]
+
+    static let apostasyProphecies = [
+        Prophecy(
+            reference: "2 Thessalonians 2:3",
+            quote: "The falling away comes first",
+            fulfillmentScore: 0.75,
+            isActive: true,
+            activeSince: "1960"
+        ),
+        Prophecy(
+            reference: "1 Timothy 4:1",
+            quote: "Some shall depart from the faith",
+            fulfillmentScore: 0.80,
+            isActive: true,
+            activeSince: "1970"
+        ),
+        Prophecy(
+            reference: "Matthew 24:12",
+            quote: "Because iniquity shall abound, the love of many shall wax cold",
+            fulfillmentScore: 0.85,
+            isActive: true,
+            activeSince: "2000"
+        ),
+        Prophecy(
+            reference: "2 Timothy 3:5",
+            quote: "Having a form of godliness but denying its power",
+            fulfillmentScore: 0.90,
+            isActive: true,
+            activeSince: "1990"
+        ),
+        Prophecy(
+            reference: "2 Peter 3:3",
+            quote: "There shall come in the last days scoffers",
+            fulfillmentScore: 0.95,
+            isActive: true,
+            activeSince: "1859"
+        )
+    ]
+
+    static let knowledgeProphecies = [
+        Prophecy(
+            reference: "Daniel 12:4",
+            quote: "Many shall run to and fro, and knowledge shall be increased",
+            fulfillmentScore: 1.0,
+            isActive: true,
+            activeSince: "1900"
+        ),
+        Prophecy(
+            reference: "Revelation 11:9",
+            quote: "People from every tribe, language and nation will gaze on their bodies",
+            fulfillmentScore: 0.95,
+            isActive: true,
+            activeSince: "1960"
+        ),
+        Prophecy(
+            reference: "Matthew 24:14",
+            quote: "This gospel of the kingdom shall be preached in all the world",
+            fulfillmentScore: 0.90,
+            isActive: true,
+            activeSince: "1950"
+        )
+    ]
+
+    static let moralDecayProphecies = [
+        Prophecy(
+            reference: "2 Timothy 3:1-5",
+            quote: "Lovers of their own selves, covetous, boasters, proud, blasphemers",
+            fulfillmentScore: 0.90,
+            isActive: true,
+            activeSince: "1960"
+        ),
+        Prophecy(
+            reference: "Matthew 24:37",
+            quote: "As it was in the days of Noah",
+            fulfillmentScore: 0.85,
+            isActive: true,
+            activeSince: "1970"
+        ),
+        Prophecy(
+            reference: "Luke 17:28",
+            quote: "As it was in the days of Lot",
+            fulfillmentScore: 0.80,
+            isActive: true,
+            activeSince: "1980"
+        ),
+        Prophecy(
+            reference: "2 Timothy 3:2",
+            quote: "Disobedient to parents",
+            fulfillmentScore: 0.95,
+            isActive: true,
+            activeSince: "1960"
+        )
+    ]
+
+    static let economicProphecies = [
+        Prophecy(
+            reference: "Revelation 6:6",
+            quote: "A quart of wheat for a day's wages",
+            fulfillmentScore: 0.60,
+            isActive: true,
+            activeSince: "2008"
+        ),
+        Prophecy(
+            reference: "James 5:3",
+            quote: "Ye have heaped treasure together for the last days",
+            fulfillmentScore: 0.75,
+            isActive: true,
+            activeSince: "1980"
+        ),
+        Prophecy(
+            reference: "Revelation 18:3",
+            quote: "The merchants of the earth are waxed rich",
+            fulfillmentScore: 0.85,
+            isActive: true,
+            activeSince: "1990"
+        )
+    ]
+
+    static let persecutionProphecies = [
+        Prophecy(
+            reference: "Matthew 24:9",
+            quote: "Ye shall be hated of all nations for my name's sake",
+            fulfillmentScore: 0.70,
+            isActive: true,
+            activeSince: "33"
+        ),
+        Prophecy(
+            reference: "Revelation 6:9",
+            quote: "I saw under the altar the souls of them that were slain for the word of God",
+            fulfillmentScore: 0.60,
+            isActive: true,
+            activeSince: "2000"
+        ),
+        Prophecy(
+            reference: "Mark 13:12",
+            quote: "Brother shall deliver up the brother to death",
+            fulfillmentScore: 0.50,
+            isActive: true,
+            activeSince: "2010"
         )
     ]
 }
@@ -614,17 +1037,4 @@ struct NewsArticle: Identifiable, Hashable {
             relevanceScore: 0.85
         )
     ]
-}
-
-// Add star.of.david SF Symbol alternative
-extension Image {
-    init(systemName: String) {
-        if systemName == "star.of.david" {
-            self = Image(systemName: "star")
-        } else if systemName == "cross.fill" {
-            self = Image(systemName: "plus.circle.fill")
-        } else {
-            self = Image(systemName: systemName)
-        }
-    }
 }
