@@ -362,7 +362,7 @@ struct ArticleCard: View {
 }
 
 // MARK: - Data Models
-struct ProphecyCategory: Identifiable {
+struct ProphecyCategory: Identifiable, Hashable {
     let id = UUID()
     let name: String
     let icon: String
@@ -372,6 +372,14 @@ struct ProphecyCategory: Identifiable {
     let totalConditions: Int
     let prophecies: [Prophecy]
     let articles: [NewsArticle]
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+    static func == (lhs: ProphecyCategory, rhs: ProphecyCategory) -> Bool {
+        lhs.id == rhs.id
+    }
 
     static let allCategories = [
         ProphecyCategory(
@@ -477,7 +485,7 @@ struct ProphecyCategory: Identifiable {
     ]
 }
 
-struct Prophecy: Identifiable {
+struct Prophecy: Identifiable, Hashable {
     let id = UUID()
     let reference: String
     let quote: String
@@ -547,7 +555,7 @@ struct Prophecy: Identifiable {
     ]
 }
 
-struct NewsArticle: Identifiable {
+struct NewsArticle: Identifiable, Hashable {
     let id = UUID()
     let title: String
     let summary: String
