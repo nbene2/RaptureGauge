@@ -231,17 +231,9 @@ struct MainView: View {
                     .ignoresSafeArea()
 
                 VStack(spacing: 0) {
-                    // Logo only
-                    Image("Logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 120)
-                        .padding(.top, 20)
-                        .padding(.bottom, 5)
-
-                    // Countdown Timer Section
+                    // Countdown Timer Section (no logo)
                     CountdownSection(raptureDate: raptureDate, currentTime: currentTime)
-                        .padding(.top, 10)
+                        .padding(.top, 40)
                         .padding(.bottom, 20)
 
                     // Category List
